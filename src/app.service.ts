@@ -8,4 +8,10 @@ export class AppService {
     // comment 2
     // comment 3
   }
+  getNeHello(): string {
+    return 'testest'
+    // comment 1
+    // comment 2
+    // comment 3
+  }
 }
