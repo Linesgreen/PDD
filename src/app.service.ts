@@ -10,7 +10,7 @@ export class AppService {
     // comment 4
     // fasfa
   }
-  get2Hello(): string {
+  get2Hello(dfasdfasasdfasf: any): string {
     return 'testest';
     // comment 1
     // comment 2
