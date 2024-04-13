@@ -6,5 +6,6 @@ export class AppService {
     return 'Hello super World!';
     // comment 1
     // comment 2
+    // comment 3
   }
 }
