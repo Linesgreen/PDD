@@ -17,4 +17,11 @@ export class AppService {
     // comment 3
     //новый комент
   }
+  get2Hello(): string {
+    return 'testest';
+    // comment 1
+    // comment 2
+    // comment 3
+    //новый комент
+  }
 }
