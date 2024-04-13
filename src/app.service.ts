@@ -20,4 +20,7 @@ export class AppService {
   fwefawef() {
     return 'asdfsf';
   }
+  KEK() {
+    return 'asdfsf';
+  }
 }
