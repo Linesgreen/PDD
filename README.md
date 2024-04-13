@@ -71,3 +71,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+ENV IN PROJECT :
+PORT= 5000
+POSTGRES_URL=postgres://{postgres}:{password}@localhost:{PORT_5432}/{BD_NAME}
