@@ -17,4 +17,7 @@ export class AppService {
     // comment 3
     //новый комент
   }
+  fwefawef() {
+    return 'asdfsf';
+  }
 }
