@@ -5,5 +5,6 @@ export class AppService {
   getHello(): string {
     return 'Hello super World!';
     // comment 1
+    // comment 2
   }
 }
