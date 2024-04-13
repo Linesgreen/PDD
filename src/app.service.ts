@@ -8,4 +8,7 @@ export class AppService {
     // comment 2
     // comment 3
   }
+  getNeHello(): string {
+    return 'testest'
+  }
 }
