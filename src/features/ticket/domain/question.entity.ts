@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, Index, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { AnswerEntity } from './answer.entity';
 import { TicketEntity } from './ticket.entity';
@@ -11,6 +11,11 @@ export class QuestionEntity extends BaseEntity {
   @Column({ type: 'text', nullable: true })
   img: string;
 
+  //Индекс для обозначения что комбинация этих полей уникальная
+  @Index(['position', 'ticketId'], { unique: true })
+  @Column()
+  position: number;
+
   @Column({ type: 'text' })
   question: string;
 
@@ -20,7 +25,7 @@ export class QuestionEntity extends BaseEntity {
   @Column()
   ticketId: number;
 
-  @OneToMany(() => AnswerEntity, (answer) => answer.issue)
+  @OneToMany(() => AnswerEntity, (answer) => answer.question)
   answers: AnswerEntity[];
 
   @ManyToOne(() => TicketEntity, (ticket) => ticket.questions)

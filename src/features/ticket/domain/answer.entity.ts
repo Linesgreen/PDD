@@ -18,5 +18,5 @@ export class AnswerEntity extends BaseEntity {
 
   @ManyToOne(() => QuestionEntity, (issue) => issue.answers)
   @JoinColumn({ name: 'issueId' })
-  issue: QuestionEntity;
+  question: QuestionEntity;
 }
