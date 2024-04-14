@@ -72,6 +72,11 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-ENV IN PROJECT :
-PORT= 5000
-POSTGRES_URL=postgres://{postgres}:{password}@localhost:{PORT_5432}/{BD_NAME}
+## Environment Variables
+
+Below is a table of the environment variables required by the project. Ensure to set these variables correctly in your environment configuration:
+
+| Variable           | Description                    | Sample Value                                                       |
+|--------------------|--------------------------------|--------------------------------------------------------------------|
+| `**PORT**`         | The port the server listens on | `5000`                                                             |
+| `**POSTGRES_URL**` | Postgres connection URL        | `postgres://{userName}:{password}@localhost:{PORT_5432}/{BD_NAME}` |
