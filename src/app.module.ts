@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { config } from 'dotenv';
+
+import { ticketEntities } from './features/ticket';
+
+config();
 
 const postgres_url = process.env.POSTGRES_URL;
 
@@ -18,7 +21,7 @@ const postgres_url = process.env.POSTGRES_URL;
       logging: true,
     }),
     //Для схем бд
-    TypeOrmModule.forFeature(),
+    TypeOrmModule.forFeature([...ticketEntities]),
   ],
   controllers: [],
   providers: [],
