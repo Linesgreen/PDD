@@ -76,7 +76,9 @@ Nest is [MIT licensed](LICENSE).
 
 Below is a table of the environment variables required by the project. Ensure to set these variables correctly in your environment configuration:
 
-| Variable           | Description                    | Sample Value                                                       |
-|--------------------|--------------------------------|--------------------------------------------------------------------|
-| `**PORT**`         | The port the server listens on | `5000`                                                             |
-| `**POSTGRES_URL**` | Postgres connection URL        | `postgres://{userName}:{password}@localhost:{PORT_5432}/{BD_NAME}` |
+| Variable                   | Description                    | Sample Value                                                       |
+|----------------------------|--------------------------------|--------------------------------------------------------------------|
+| `**PORT**`                 | The port the server listens on | `5000`                                                             |
+| `**POSTGRES_URL**`         | Postgres connection URL        | `postgres://{userName}:{password}@localhost:{PORT_5432}/{BD_NAME}` |
+| `**SUPER_ADMIN_LOGIN**`    | Super admin login              | `admin`                                                            |
+| `**SUPER_ADMIN_PASSWORD**` | Super admin password           | `123`                                                              |
