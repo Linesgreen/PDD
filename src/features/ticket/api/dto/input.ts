@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsBoolean, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber, IsString, ValidateNested } from 'class-validator';
 
 export class AnswerCreateModel {
   @IsString()
@@ -10,6 +10,8 @@ export class AnswerCreateModel {
 }
 
 export class TicketCreateModel {
+  @IsNumber()
+  position: number;
   @IsString()
   @IsNotEmpty()
   question: string;
