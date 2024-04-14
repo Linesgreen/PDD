@@ -1,21 +1,23 @@
-import { IsBoolean, IsNotEmpty, IsString } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsBoolean, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 
 export class AnswerCreateModel {
   @IsString()
   @IsNotEmpty()
-  answer: string;
+  answer_text: string;
   @IsBoolean()
-  isCorrect: boolean;
+  is_correct: boolean;
 }
 
 export class TicketCreateModel {
-  @IsNotEmpty()
-  img: string | null;
   @IsString()
   @IsNotEmpty()
   question: string;
   @IsString()
   @IsNotEmpty()
   help: string;
+  @ValidateNested({ each: true })
+  @Type(() => AnswerCreateModel)
   answers: AnswerCreateModel[];
+  img: string | null;
 }

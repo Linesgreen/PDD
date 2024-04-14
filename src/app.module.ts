@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
 
 import { ticketEntities } from './features/ticket';
+import { TicketController } from './features/ticket/api/ticket.controller';
 import { BasicAuthGuard } from './infrastructure/guards/admin.guard';
 
 config();
@@ -25,7 +26,7 @@ const guards = [BasicAuthGuard];
     //Для схем бд
     TypeOrmModule.forFeature([...ticketEntities]),
   ],
-  controllers: [],
+  controllers: [TicketController],
   providers: [...guards],
 })
 export class AppModule {}
