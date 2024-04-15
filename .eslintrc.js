@@ -29,7 +29,7 @@ module.exports = {
     'simple-import-sort/exports': 'error',
     'simple-import-sort/imports': ['error'],
     '@typescript-eslint/member-ordering': 'error',
-    'no-underscore-dangle': 'error',
+    'no-underscore-dangle': 'off',
   },
   overrides: [
     {

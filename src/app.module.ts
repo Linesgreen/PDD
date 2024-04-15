@@ -4,10 +4,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
 
 import { ticketEntities } from './features/ticket';
+import { TicketController } from './features/ticket/api/ticket.controller';
+import { BasicAuthGuard } from './infrastructure/guards/admin.guard';
 
 config();
 
 const postgres_url = process.env.POSTGRES_URL;
+const guards = [BasicAuthGuard];
 
 @Module({
   imports: [
@@ -23,7 +26,7 @@ const postgres_url = process.env.POSTGRES_URL;
     //Для схем бд
     TypeOrmModule.forFeature([...ticketEntities]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [TicketController],
+  providers: [...guards],
 })
 export class AppModule {}
