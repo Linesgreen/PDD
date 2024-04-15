@@ -5,7 +5,7 @@ export class UserPost {
   name: string;
 
   @Length(3, 10)
-  surname: string;
+  surName: string;
 
   @Length(6, 20)
   password: string;
