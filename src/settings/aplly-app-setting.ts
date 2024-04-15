@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 
-export const appSettings = (app: INestApplication) => {};
+export const appSettings = (app: INestApplication) => {
+  app.useGlobalPipes(new ValidationPipe());
+};
