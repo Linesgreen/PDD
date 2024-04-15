@@ -4,6 +4,7 @@ import { AnswerEntity } from './answer.entity';
 import { TicketEntity } from './ticket.entity';
 
 @Entity('question')
+@Index('idx_position_ticketId', ['position', 'ticketId'], { unique: true })
 export class QuestionEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,8 +12,6 @@ export class QuestionEntity extends BaseEntity {
   @Column({ type: 'text', nullable: true })
   img: string;
 
-  //Индекс для обозначения что комбинация этих полей уникальная
-  @Index(['position', 'ticketId'], { unique: true })
   @Column()
   position: number;
 
@@ -25,7 +24,7 @@ export class QuestionEntity extends BaseEntity {
   @Column()
   ticketId: number;
 
-  @OneToMany(() => AnswerEntity, (answer) => answer.question)
+  @OneToMany(() => AnswerEntity, (answer) => answer.question, { cascade: true })
   answers: AnswerEntity[];
 
   @ManyToOne(() => TicketEntity, (ticket) => ticket.questions)

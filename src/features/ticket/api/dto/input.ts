@@ -11,6 +11,8 @@ export class AnswerCreateModel {
 
 export class TicketCreateModel {
   @IsNumber()
+  ticket_number: number;
+  @IsNumber()
   position: number;
   @IsString()
   @IsNotEmpty()

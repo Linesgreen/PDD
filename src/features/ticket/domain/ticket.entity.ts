@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { QuestionEntity } from './question.entity';
 
@@ -7,6 +7,10 @@ export class TicketEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToMany(() => QuestionEntity, (q) => q.ticket)
+  @Index(['number', 'id'], { unique: true })
+  @Column()
+  number: number;
+
+  @OneToMany(() => QuestionEntity, (q) => q.ticket, { cascade: true })
   questions: QuestionEntity[];
 }
