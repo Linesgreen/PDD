@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
 
+import { AuthController } from './features/auth/api/auth.controller';
 import { ticketEntities } from './features/ticket';
 import { TicketController } from './features/ticket/api/ticket.controller';
-import { BasicAuthGuard } from './infrastructure/guards/admin.guard';
 import { userEntities, userProviders, userUseCases } from './features/user';
 import { UsersController } from './features/user/api/users.controller';
-import { CqrsModule } from '@nestjs/cqrs';
-import { AuthController } from './features/auth/api/auth.controller';
+import { BasicAuthGuard } from './infrastructure/guards/admin.guard';
 import { UserAuthGuard } from './infrastructure/guards/user.auth.guard';
 
 config();
