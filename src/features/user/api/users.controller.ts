@@ -1,8 +1,10 @@
-import { Body, Controller, HttpException, NotFoundException, Post } from '@nestjs/common';
+import { Body, Controller, NotFoundException, Post } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { UserPost } from './dto/input';
+
 import { UsersCreateUserCommand } from '../application/commands/user.createuser.usecase';
 import { UsersQueryRepository } from '../infrastructure/users.query.repository';
+import { UserPost } from './dto/input';
+import { UserOutput } from './dto/output';
 
 @Controller('users')
 // @UseGuards(BasicAuthGuard)
@@ -14,7 +16,8 @@ export class UsersController {
 
   //создание нового пользователя
   @Post()
-  async createUser(@Body() dto: UserPost) {
+  async createUser(@Body() dto: UserPost): Promise<UserOutput | null> {
+    console.log(dto);
     const result = await this.commandBus.execute(new UsersCreateUserCommand(dto));
 
     if (!result) throw new NotFoundException();
