@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { UserPost } from '../../api/dto/input';
+import { UserPost } from '../../api/dto/input/user.input';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from '../users.service';
 import { UsersRepository } from '../../infrastructure/users.repository';

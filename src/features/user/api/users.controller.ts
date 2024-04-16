@@ -1,12 +1,12 @@
 import { Body, Controller, NotFoundException, Post } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-
+import { UserPost } from './dto/input/user.input';
 import { UsersCreateUserCommand } from '../application/commands/user.createuser.usecase';
 import { UsersQueryRepository } from '../infrastructure/users.query.repository';
-import { UserPost } from './dto/input';
-import { UserOutput } from './dto/output';
+import { UserOutput } from './dto/output/output';
 
 @Controller('users')
+
 // @UseGuards(BasicAuthGuard)
 export class UsersController {
   constructor(
