@@ -11,6 +11,7 @@ import { userEntities, userProviders, userUseCases } from './features/user';
 import { UsersController } from './features/user/api/users.controller';
 import { BasicAuthGuard } from './infrastructure/guards/admin.guard';
 import { UserAuthGuard } from './infrastructure/guards/user.auth.guard';
+import { TestingController } from './features/testing/api/testing-controller';
 
 config();
 
@@ -32,7 +33,7 @@ const guards = [BasicAuthGuard, UserAuthGuard];
     TypeOrmModule.forFeature([...ticketEntities, ...userEntities]),
     CqrsModule,
   ],
-  controllers: [TicketController, UsersController, AuthController],
+  controllers: [TicketController, UsersController, AuthController, TestingController],
   providers: [...guards, ...userProviders, ...userUseCases],
 })
 export class AppModule {}
