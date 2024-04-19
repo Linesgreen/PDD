@@ -1,15 +1,15 @@
+import { Injectable } from '@nestjs/common';
 import { ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
-import { Injectable, Scope } from '@nestjs/common';
+
 import { UsersRepository } from '../../../infrastructure/users.repository';
 
 @ValidatorConstraint({ name: 'customText', async: true })
 @Injectable()
 export class UserEmailValidation implements ValidatorConstraintInterface {
+  errorMessage: string;
   constructor(private readonly usersRepository: UsersRepository) {}
 
-  errorMessage: string;
-
-  async validate(email: string) {
+  async validate(email: string): Promise<boolean> {
     const user = await this.usersRepository.findUserByEmail(email);
 
     if (user) {
@@ -21,7 +21,7 @@ export class UserEmailValidation implements ValidatorConstraintInterface {
     return true;
   }
 
-  defaultMessage() {
+  defaultMessage(): string {
     return this.errorMessage;
   }
 }

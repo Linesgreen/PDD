@@ -1,9 +1,10 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { UserPost } from '../../api/dto/input/user.input';
 import * as bcrypt from 'bcrypt';
-import { UsersService } from '../users.service';
-import { UsersRepository } from '../../infrastructure/users.repository';
+
+import { UserPost } from '../../api/dto/input/user.input';
 import { User } from '../../domain/user.entity';
+import { UsersRepository } from '../../infrastructure/users.repository';
+import { UsersService } from '../users.service';
 
 export class UsersCreateUserCommand {
   constructor(public dto: UserPost) {}

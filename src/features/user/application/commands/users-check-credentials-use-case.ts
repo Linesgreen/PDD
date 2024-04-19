@@ -1,6 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { UsersRepository } from '../../infrastructure/users.repository';
+
 import { User } from '../../domain/user.entity';
+import { UsersRepository } from '../../infrastructure/users.repository';
 import { UsersService } from '../users.service';
 
 export class UsersCheckCredentialsCommand {

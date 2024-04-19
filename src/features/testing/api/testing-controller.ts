@@ -8,7 +8,7 @@ export class TestingController {
 
   @Delete('all-data')
   @HttpCode(204 /*HTTP_STATUSES.NO_CONTENT_204*/)
-  async allData() {
+  async allData(): Promise<void> {
     await this.commandBus.execute(new UsersTestAllDataCommand());
     return;
   }

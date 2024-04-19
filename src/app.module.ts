@@ -5,13 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
 
 import { AuthController } from './features/auth/api/auth.controller';
+import { TestingController } from './features/testing/api/testing-controller';
 import { ticketEntities } from './features/ticket';
 import { TicketController } from './features/ticket/api/ticket.controller';
 import { userEntities, userProviders, userUseCases } from './features/user';
 import { UsersController } from './features/user/api/users.controller';
 import { BasicAuthGuard } from './infrastructure/guards/admin.guard';
 import { UserAuthGuard } from './infrastructure/guards/user.auth.guard';
-import { TestingController } from './features/testing/api/testing-controller';
 
 config();
 

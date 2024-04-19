@@ -1,6 +1,6 @@
-import { Injectable, CanActivate, ExecutionContext, UnauthorizedException, BadRequestException } from '@nestjs/common';
-import { Request } from 'express';
+import { BadRequestException, CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
+import { Request } from 'express';
 import { UsersCheckCredentialsCommand } from 'src/features/user/application/commands/users-check-credentials-use-case';
 
 @Injectable()
